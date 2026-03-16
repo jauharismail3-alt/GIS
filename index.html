@@ -43,7 +43,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-7.089141582622465,112.7525617948783],[-7.074808654176428,112.77435546264807]]);
+        }).fitBounds([[-7.09135452620759,112.75186473156467],[-7.073474420161948,112.77905199425967]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -138,24 +138,24 @@
         });
         layer_earthsat_0;
         map.addLayer(layer_earthsat_0);
-        map.createPane('pane_HILLSHADEareanew_1');
-        map.getPane('pane_HILLSHADEareanew_1').style.zIndex = 401;
-        var img_HILLSHADEareanew_1 = 'data/HILLSHADEareanew_1.png';
-        var img_bounds_HILLSHADEareanew_1 = [[-7.087946846705797,112.75624779670963],[-7.075550095784948,112.76864454763049]];
-        var layer_HILLSHADEareanew_1 = new L.imageOverlay(img_HILLSHADEareanew_1,
-                                              img_bounds_HILLSHADEareanew_1,
-                                              {pane: 'pane_HILLSHADEareanew_1'});
-        bounds_group.addLayer(layer_HILLSHADEareanew_1);
-        map.addLayer(layer_HILLSHADEareanew_1);
-        map.createPane('pane_reclassifyslopejaddihareanew_2');
-        map.getPane('pane_reclassifyslopejaddihareanew_2').style.zIndex = 402;
-        var img_reclassifyslopejaddihareanew_2 = 'data/reclassifyslopejaddihareanew_2.png';
-        var img_bounds_reclassifyslopejaddihareanew_2 = [[-7.087946846705797,112.75624779670963],[-7.075550095784948,112.76864454763049]];
-        var layer_reclassifyslopejaddihareanew_2 = new L.imageOverlay(img_reclassifyslopejaddihareanew_2,
-                                              img_bounds_reclassifyslopejaddihareanew_2,
-                                              {pane: 'pane_reclassifyslopejaddihareanew_2'});
-        bounds_group.addLayer(layer_reclassifyslopejaddihareanew_2);
-        map.addLayer(layer_reclassifyslopejaddihareanew_2);
+        map.createPane('pane_IndexSAVI_1');
+        map.getPane('pane_IndexSAVI_1').style.zIndex = 401;
+        var img_IndexSAVI_1 = 'data/IndexSAVI_1.png';
+        var img_bounds_IndexSAVI_1 = [[-7.087964853487393,112.75617855565322],[-7.075530836737702,112.76862554613678]];
+        var layer_IndexSAVI_1 = new L.imageOverlay(img_IndexSAVI_1,
+                                              img_bounds_IndexSAVI_1,
+                                              {pane: 'pane_IndexSAVI_1'});
+        bounds_group.addLayer(layer_IndexSAVI_1);
+        map.addLayer(layer_IndexSAVI_1);
+        map.createPane('pane_KlasifikasiLereng_2');
+        map.getPane('pane_KlasifikasiLereng_2').style.zIndex = 402;
+        var img_KlasifikasiLereng_2 = 'data/KlasifikasiLereng_2.png';
+        var img_bounds_KlasifikasiLereng_2 = [[-7.087946846705797,112.75624779670963],[-7.075550095784948,112.76864454763049]];
+        var layer_KlasifikasiLereng_2 = new L.imageOverlay(img_KlasifikasiLereng_2,
+                                              img_bounds_KlasifikasiLereng_2,
+                                              {pane: 'pane_KlasifikasiLereng_2'});
+        bounds_group.addLayer(layer_KlasifikasiLereng_2);
+        map.addLayer(layer_KlasifikasiLereng_2);
         map.createPane('pane_konturareanew_3');
         map.getPane('pane_konturareanew_3').style.zIndex = 403;
         var img_konturareanew_3 = 'data/konturareanew_3.png';
@@ -255,8 +255,8 @@
         var overlaysTree = [
             {label: '<img src="legend/clipareatambang_4.png" /> clip area tambang', layer: layer_clipareatambang_4},
             {label: "kontur area new", layer: layer_konturareanew_3},
-            {label: "reclassify slope jaddih area new", layer: layer_reclassifyslopejaddihareanew_2},
-            {label: "HILLSHADE area new", layer: layer_HILLSHADEareanew_1},
+            {label: "Klasifikasi Lereng", layer: layer_KlasifikasiLereng_2},
+            {label: "Index SAVI", layer: layer_IndexSAVI_1},
             {label: "earth sat", layer: layer_earthsat_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -324,6 +324,38 @@
                 return this._bounds;
             }
         });
+       // --- KODE UNTUK MENAMBAHKAN LEGENDA GAMBAR & TEKS ---
+        var legendControl = L.control({position: 'bottomright'}); 
+
+        legendControl.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend');
+            
+            // Mengatur desain (style) kotak background agar mencakup gambar dan teks
+            div.style.backgroundColor = 'white';
+            div.style.padding = '10px';
+            div.style.borderRadius = '5px';
+            div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+            div.style.fontFamily = 'Arial, sans-serif';
+            div.style.fontSize = '12px'; // Ukuran font teks
+            div.style.color = '#333';
+            div.style.lineHeight = '1.5';
+
+            // Menggabungkan gambar PNG dan teks keterangan menggunakan HTML
+            div.innerHTML = 
+                '<img src="only%20legend.png" alt="Legenda" style="width: 150px; display: block; margin-bottom: 10px;">' +
+                '<div style="border-top: 1px solid #ccc; padding-top: 8px;">' + // Garis pemisah
+                '<strong>Datum:</strong> WGS 84<br>' +
+                '<strong>Sumber Data:</strong><br>' +
+                '• DEM: Sentinel-1<br>' +
+                '• SAVI: Sentinel-2<br>' +
+                '• Basemap: Google Earth' +
+                '</div>';
+            
+            return div;
+        };
+
+        legendControl.addTo(map);
+        // --- AKHIR KODE LEGENDA ---
         </script>        
     </body>
 </html>
