@@ -11,8 +11,11 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+=======
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -32,7 +35,10 @@
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
         <script src="js/L.Control.Locate.min.js"></script>
+<<<<<<< HEAD
         <script src="js/multi-style-layer.js"></script>
+=======
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -42,6 +48,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
+<<<<<<< HEAD
         <script src="js/leaflet.markercluster.js"></script>
         <script src="data/Kemiringanlereng_2.js"></script>
         <script src="data/Kontur_3.js"></script>
@@ -51,6 +58,13 @@
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.089876044882544,112.75165951502895],[-7.075445764729856,112.77360120912569]]);
+=======
+        <script src="data/clipareatambang_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[-7.09135452620759,112.75186473156467],[-7.073474420161948,112.77905199425967]]);
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -154,6 +168,7 @@
                                               {pane: 'pane_IndexSAVI_1'});
         bounds_group.addLayer(layer_IndexSAVI_1);
         map.addLayer(layer_IndexSAVI_1);
+<<<<<<< HEAD
         function pop_Kemiringanlereng_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -161,6 +176,31 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['DN'] !== null ? autolinker.link(String(feature.properties['DN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+=======
+        map.createPane('pane_KlasifikasiLereng_2');
+        map.getPane('pane_KlasifikasiLereng_2').style.zIndex = 402;
+        var img_KlasifikasiLereng_2 = 'data/KlasifikasiLereng_2.png';
+        var img_bounds_KlasifikasiLereng_2 = [[-7.087946846705797,112.75624779670963],[-7.075550095784948,112.76864454763049]];
+        var layer_KlasifikasiLereng_2 = new L.imageOverlay(img_KlasifikasiLereng_2,
+                                              img_bounds_KlasifikasiLereng_2,
+                                              {pane: 'pane_KlasifikasiLereng_2'});
+        bounds_group.addLayer(layer_KlasifikasiLereng_2);
+        map.addLayer(layer_KlasifikasiLereng_2);
+        map.createPane('pane_konturareanew_3');
+        map.getPane('pane_konturareanew_3').style.zIndex = 403;
+        var img_konturareanew_3 = 'data/konturareanew_3.png';
+        var img_bounds_konturareanew_3 = [[-7.087946846705797,112.75624779670963],[-7.075550095784948,112.76864454763049]];
+        var layer_konturareanew_3 = new L.imageOverlay(img_konturareanew_3,
+                                              img_bounds_konturareanew_3,
+                                              {pane: 'pane_konturareanew_3'});
+        bounds_group.addLayer(layer_konturareanew_3);
+        map.addLayer(layer_konturareanew_3);
+        function pop_clipareatambang_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -170,6 +210,7 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
+<<<<<<< HEAD
         function style_Kemiringanlereng_2_0(feature) {
             if (feature.properties['DN'] >= 280.000000 && feature.properties['DN'] <= 504503.200000 ) {
                 return {
@@ -467,6 +508,28 @@
 
         bounds_group.addLayer(layer_Titiktingkatkesuburan_5);
         cluster_Titiktingkatkesuburan_5.addTo(map);
+=======
+        function style_clipareatambang_4_0() {
+            return {
+                pane: 'pane_clipareatambang_4',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_clipareatambang_4');
+        map.getPane('pane_clipareatambang_4').style.zIndex = 404;
+        map.getPane('pane_clipareatambang_4').style['mix-blend-mode'] = 'normal';
+        var layer_clipareatambang_4 = new L.geoJson(json_clipareatambang_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_clipareatambang_4',
+            layerName: 'layer_clipareatambang_4',
+            pane: 'pane_clipareatambang_4',
+            onEachFeature: pop_clipareatambang_4,
+            style: style_clipareatambang_4_0,
+        });
+        bounds_group.addLayer(layer_clipareatambang_4);
+        map.addLayer(layer_clipareatambang_4);
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
         const url = {"Nominatim OSM": "https://nominatim.openstreetmap.org/search?format=geojson&addressdetails=1&",
         "France BAN": "https://api-adresse.data.gouv.fr/search/?"}
         var photonControl = L.control.photon({
@@ -521,10 +584,16 @@
             }
         });
         var overlaysTree = [
+<<<<<<< HEAD
             {label: 'Titik tingkat kesuburan<br /><table><tr><td style="text-align: center;"><img src="legend/Titiktingkatkesuburan_5_Buruk0.png" /></td><td>Buruk</td></tr><tr><td style="text-align: center;"><img src="legend/Titiktingkatkesuburan_5_Sedang1.png" /></td><td>Sedang</td></tr><tr><td style="text-align: center;"><img src="legend/Titiktingkatkesuburan_5_Baik2.png" /></td><td>Baik</td></tr></table>', layer: cluster_Titiktingkatkesuburan_5},
             {label: '<img src="legend/Batasareatambang_4.png" /> Batas area tambang', layer: layer_Batasareatambang_4},
             {label: '<img src="legend/Kontur_3.png" /> Kontur', layer: layer_Kontur_3},
             {label: 'Kemiringan lereng<br /><table><tr><td style="text-align: center;"><img src="legend/Kemiringanlereng_2_080.png" /></td><td>0-8%</td></tr><tr><td style="text-align: center;"><img src="legend/Kemiringanlereng_2_8151.png" /></td><td>8-15%</td></tr><tr><td style="text-align: center;"><img src="legend/Kemiringanlereng_2_15252.png" /></td><td>15-25%</td></tr><tr><td style="text-align: center;"><img src="legend/Kemiringanlereng_2_25453.png" /></td><td>25-45%</td></tr><tr><td style="text-align: center;"><img src="legend/Kemiringanlereng_2_454.png" /></td><td>>45%</td></tr></table>', layer: layer_Kemiringanlereng_2},
+=======
+            {label: '<img src="legend/clipareatambang_4.png" /> clip area tambang', layer: layer_clipareatambang_4},
+            {label: "kontur area new", layer: layer_konturareanew_3},
+            {label: "Klasifikasi Lereng", layer: layer_KlasifikasiLereng_2},
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
             {label: "Index SAVI", layer: layer_IndexSAVI_1},
             {label: "earth sat", layer: layer_earthsat_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
@@ -593,6 +662,41 @@
                 return this._bounds;
             }
         });
+<<<<<<< HEAD
+=======
+       // --- KODE UNTUK MENAMBAHKAN LEGENDA GAMBAR & TEKS ---
+        var legendControl = L.control({position: 'bottomright'}); 
+
+        legendControl.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend');
+            
+            // Mengatur desain (style) kotak background agar mencakup gambar dan teks
+            div.style.backgroundColor = 'white';
+            div.style.padding = '10px';
+            div.style.borderRadius = '5px';
+            div.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+            div.style.fontFamily = 'Arial, sans-serif';
+            div.style.fontSize = '12px'; // Ukuran font teks
+            div.style.color = '#333';
+            div.style.lineHeight = '1.5';
+
+            // Menggabungkan gambar PNG dan teks keterangan menggunakan HTML
+            div.innerHTML = 
+                '<img src="only%20legend.png" alt="Legenda" style="width: 150px; display: block; margin-bottom: 10px;">' +
+                '<div style="border-top: 1px solid #ccc; padding-top: 8px;">' + // Garis pemisah
+                '<strong>Datum:</strong> WGS 84<br>' +
+                '<strong>Sumber Data:</strong><br>' +
+                '• DEM: Sentinel-1<br>' +
+                '• SAVI: Sentinel-2<br>' +
+                '• Basemap: Google Earth' +
+                '</div>';
+            
+            return div;
+        };
+
+        legendControl.addTo(map);
+        // --- AKHIR KODE LEGENDA ---
+>>>>>>> 6039335c8666a93a84595b8b654dca4419155c70
         </script>        
     </body>
 </html>
